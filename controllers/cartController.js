@@ -38,8 +38,8 @@ const deleteFromCart = async (req, res) => {
 /* GET USER CART BY USERID */
 const getUserCart = async (req, res) => {
   try {
-    const cart = await Cart.findOne({ userId: req.params.userId });
-    res.status(200).json(cart);
+    const cart = await Cart.find({ userId: req.body.userId })
+    res.status(200).send(cart)
   } catch (error) {
     res.status(500).json(error);
   }

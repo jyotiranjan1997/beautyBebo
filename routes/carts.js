@@ -6,8 +6,6 @@ const {
   getUserCart,
 } = require("../controllers/cartController");
 const {
-  verifyToken,
-  verifyTokenAndAuthorization,
   CartMiddleWare,
 } = require("../middlewares/verifyToken");
 
