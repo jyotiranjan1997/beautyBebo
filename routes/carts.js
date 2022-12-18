@@ -21,7 +21,7 @@ cartRoutes.patch("/:id", CartMiddleWare, updateCart);
 /* DELETE */
 cartRoutes.delete("/:id", CartMiddleWare, deleteFromCart);
 
-cartRoutes.delete("/:id", CartMiddleWare, deleteFromCartMany);
+cartRoutes.delete("/deletemany", CartMiddleWare, deleteFromCartMany);
 
 /* GET USER CART BY USERID */
 cartRoutes.get("/", CartMiddleWare, getUserCart);
