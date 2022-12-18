@@ -24,7 +24,6 @@ userRoutes.post("/login", userLogin);
 /* GET ALL USER */
 userRoutes.get("/", VerifyAdmin, getUsers);
 
-
 /* Get user Count*/
 userRoutes.get("/count", VerifyAdmin, getUserCount);
 
@@ -32,7 +31,7 @@ userRoutes.get("/count", VerifyAdmin, getUserCount);
 userRoutes.get("/:id", VerifyAdmin, getUserById);
 
 /* DELETE USER */
-userRoutes.delete("/:id", verifyTokenAndAuthorization, deleteUser);
+userRoutes.delete("/:id", VerifyAdmin, deleteUser);
 
 module.exports = userRoutes;
 
