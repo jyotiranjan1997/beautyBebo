@@ -35,6 +35,16 @@ const deleteFromCart = async (req, res) => {
   }
 };
 
+
+const deleteFromCartMany = async (req, res) => {
+  try {
+    await Cart.deleteMany({userId:req.body.userId });
+    res.status(200).json("Cart has Empty...");
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
+
 /* GET USER CART BY USERID */
 const getUserCart = async (req, res) => {
   try {
@@ -45,4 +55,10 @@ const getUserCart = async (req, res) => {
   }
 };
 
-module.exports = { addToCart, updateCart, deleteFromCart, getUserCart };
+module.exports = {
+  addToCart,
+  updateCart,
+  deleteFromCart,
+  getUserCart,
+  deleteFromCartMany,
+};

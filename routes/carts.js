@@ -4,6 +4,7 @@ const {
   updateCart,
   deleteFromCart,
   getUserCart,
+  deleteFromCartMany,
 } = require("../controllers/cartController");
 const {
   CartMiddleWare,
@@ -19,6 +20,8 @@ cartRoutes.patch("/:id", CartMiddleWare, updateCart);
 
 /* DELETE */
 cartRoutes.delete("/:id", CartMiddleWare, deleteFromCart);
+
+cartRoutes.delete("/:id", CartMiddleWare, deleteFromCartMany);
 
 /* GET USER CART BY USERID */
 cartRoutes.get("/", CartMiddleWare, getUserCart);
