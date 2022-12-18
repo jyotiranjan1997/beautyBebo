@@ -79,6 +79,17 @@ const getUsers = async (req, res) => {
   }
 };
 
+
+
+const getUserCount = async (req, res) => {
+  try {
+    const users = await User.countDocuments().limit(5);
+    res.status(200).json(users);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
+
 /* GET USER BY ID */
 const getUserById = async (req, res) => {
   try {
@@ -100,4 +111,11 @@ const deleteUser = async (req, res) => {
   }
 };
 
-module.exports = { userSignup, userLogin, getUsers, getUserById, deleteUser };
+module.exports = {
+  userSignup,
+  userLogin,
+  getUsers,
+  getUserById,
+  deleteUser,
+  getUserCount,
+};

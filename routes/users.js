@@ -5,6 +5,7 @@ const {
   getUserById,
   getUsers,
   deleteUser,
+  getUserCount,
 } = require("../controllers/userController");
 const {
   verifyTokenAndAdmin,
@@ -22,6 +23,10 @@ userRoutes.post("/login", userLogin);
 
 /* GET ALL USER */
 userRoutes.get("/", VerifyAdmin, getUsers);
+
+
+/* Get user Count*/
+userRoutes.get("/count", VerifyAdmin, getUserCount);
 
 /* GET USER */
 userRoutes.get("/:id", VerifyAdmin, getUserById);
