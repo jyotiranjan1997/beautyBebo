@@ -9,6 +9,7 @@ const {
 const {
   verifyTokenAndAdmin,
   verifyTokenAndAuthorization,
+  VerifyAdmin,
 } = require("../middlewares/verifyToken");
 
 const userRoutes = express.Router();
@@ -20,10 +21,10 @@ userRoutes.post("/signup", userSignup);
 userRoutes.post("/login", userLogin);
 
 /* GET ALL USER */
-userRoutes.get("/", verifyTokenAndAdmin, getUsers);
+userRoutes.get("/", VerifyAdmin, getUsers);
 
 /* GET USER */
-userRoutes.get("/:id", verifyTokenAndAdmin, getUserById);
+userRoutes.get("/:id", VerifyAdmin, getUserById);
 
 /* DELETE USER */
 userRoutes.delete("/:id", verifyTokenAndAuthorization, deleteUser);
