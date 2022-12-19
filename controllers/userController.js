@@ -70,9 +70,20 @@ const userLogin = async (req, res) => {
 };
 
 /* GET ALL USERS */
-const getUsers = async (req, res) => {
 
-  const page = req.params.page;
+
+const getUserCount = async (req, res) => {
+  console.log("cc");
+  try {
+    const users = await User.count();
+    res.status(200).json(users);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
+
+const getUsers = async (req, res) => {
+  const page = req.params.Page;
   const skip = (+page * 5)-5;
 
   try {
@@ -85,14 +96,7 @@ const getUsers = async (req, res) => {
 
 
 
-const getUserCount = async (req, res) => {
-  try {
-    const users = await User.countDocuments()
-    res.status(200).json(users);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-};
+
 
 /* GET USER BY ID */
 const getUserById = async (req, res) => {

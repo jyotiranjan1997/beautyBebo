@@ -8,8 +8,6 @@ const {
   getUserCount,
 } = require("../controllers/userController");
 const {
-  verifyTokenAndAdmin,
-  verifyTokenAndAuthorization,
   VerifyAdmin,
 } = require("../middlewares/verifyToken");
 
@@ -21,11 +19,15 @@ userRoutes.post("/signup", userSignup);
 /* LOGIN */
 userRoutes.post("/login", userLogin);
 
-/* GET ALL USER */
-userRoutes.get("/:page", VerifyAdmin, getUsers);
+
+
 
 /* Get user Count*/
 userRoutes.get("/count", VerifyAdmin, getUserCount);
+
+
+/* GET ALL USER */
+userRoutes.get("/:Page", VerifyAdmin, getUsers);
 
 /* GET USER */
 userRoutes.get("/:id", VerifyAdmin, getUserById);
