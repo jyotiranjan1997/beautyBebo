@@ -27,7 +27,7 @@ userRoutes.get("/count", VerifyAdmin, getUserCount);
 
 
 /* GET ALL USER */
-userRoutes.get("/:Page", VerifyAdmin, getUsers);
+userRoutes.get("/", VerifyAdmin, getUsers);
 
 /* GET USER */
 userRoutes.get("/:id", VerifyAdmin, getUserById);

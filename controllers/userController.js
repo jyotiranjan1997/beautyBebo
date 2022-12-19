@@ -87,7 +87,7 @@ const getUsers = async (req, res) => {
   const skip = (+page * 5)-5;
 
   try {
-    const users = await User.find().limit(5).skip(skip);
+    const users = await User.find()
     res.status(200).json(users);
   } catch (err) {
     res.status(500).json(err);
