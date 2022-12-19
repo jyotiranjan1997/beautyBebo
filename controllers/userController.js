@@ -71,8 +71,12 @@ const userLogin = async (req, res) => {
 
 /* GET ALL USERS */
 const getUsers = async (req, res) => {
+
+  const page = req.params.page;
+  const skip = (+page * 5)-5;
+
   try {
-    const users = await User.find().limit(5);
+    const users = await User.find().limit(5).skip(skip);
     res.status(200).json(users);
   } catch (err) {
     res.status(500).json(err);
@@ -83,7 +87,7 @@ const getUsers = async (req, res) => {
 
 const getUserCount = async (req, res) => {
   try {
-    const users = await User.countDocuments().limit(5);
+    const users = await User.countDocuments()
     res.status(200).json(users);
   } catch (err) {
     res.status(500).json(err);

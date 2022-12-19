@@ -22,7 +22,7 @@ userRoutes.post("/signup", userSignup);
 userRoutes.post("/login", userLogin);
 
 /* GET ALL USER */
-userRoutes.get("/", VerifyAdmin, getUsers);
+userRoutes.get("/:page", VerifyAdmin, getUsers);
 
 /* Get user Count*/
 userRoutes.get("/count", VerifyAdmin, getUserCount);
