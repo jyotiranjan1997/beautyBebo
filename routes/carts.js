@@ -18,10 +18,12 @@ cartRoutes.post("/add", CartMiddleWare, addToCart);
 /* UPDATE */
 cartRoutes.patch("/:id", CartMiddleWare, updateCart);
 
+cartRoutes.delete("/deletemany", CartMiddleWare, deleteFromCartMany);
+
 /* DELETE */
 cartRoutes.delete("/:id", CartMiddleWare, deleteFromCart);
 
-cartRoutes.delete("/deletemany", CartMiddleWare, deleteFromCartMany);
+
 
 /* GET USER CART BY USERID */
 cartRoutes.get("/", CartMiddleWare, getUserCart);

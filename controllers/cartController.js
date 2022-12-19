@@ -30,6 +30,7 @@ const updateCart = async (req, res) => {
 
 /* DELETE from CART */
 const deleteFromCart = async (req, res) => {
+  
   try {
     await Cart.findByIdAndDelete({ _id: req.params.id });
     res.status(200).json("Cart has been deleted...");
@@ -40,8 +41,9 @@ const deleteFromCart = async (req, res) => {
 
 const deleteFromCartMany = async (req, res) => {
   const userId = req.body.userId;
+  console.log(userId)
   try {
-    await Cart.deleteMany({ userId });
+    await Cart.deleteMany({userId: userId });
     res.status(200).json("Cart has Empty...");
   } catch (error) {
     res.status(500).json(error);
