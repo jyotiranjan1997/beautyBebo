@@ -113,7 +113,7 @@ const getUserById = async (req, res) => {
 };
 
 const updateUserById = async (req, res) => {
-    const { userId } = req.body;
+    const { userId, firstName, lastName, email, phone } = req.body;
   try {
     const user = await User.findByIdAndUpdate(
       { _id: userId },
