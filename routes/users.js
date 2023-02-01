@@ -6,10 +6,9 @@ const {
   getUsers,
   deleteUser,
   getUserCount,
+  updateUserById
 } = require("../controllers/userController");
-const {
-  VerifyAdmin,
-} = require("../middlewares/verifyToken");
+const { VerifyAdmin, CartMiddleWare } = require("../middlewares/verifyToken");
 
 const userRoutes = express.Router();
 
@@ -30,7 +29,10 @@ userRoutes.get("/count", VerifyAdmin, getUserCount);
 userRoutes.get("/", VerifyAdmin, getUsers);
 
 /* GET USER */
-userRoutes.get("/:id", VerifyAdmin, getUserById);
+userRoutes.get("/singleuser", CartMiddleWare, getUserById);
+
+/* USER Data Update */
+userRoutes.patch("/singleuser", CartMiddleWare, updateUserById);
 
 /* DELETE USER */
 userRoutes.delete("/:id", VerifyAdmin, deleteUser);

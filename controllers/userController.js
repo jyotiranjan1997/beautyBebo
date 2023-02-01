@@ -100,8 +100,25 @@ const getUsers = async (req, res) => {
 
 /* GET USER BY ID */
 const getUserById = async (req, res) => {
+
+  const { userId } = req.body;
+
   try {
-    const user = await User.findById(req.params.id);
+    const user = await User.findById(userId);
+    const { password, ...others } = user._doc;
+    res.status(200).json(others);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
+
+const updateUserById = async (req, res) => {
+    const { userId } = req.body;
+  try {
+    const user = await User.findByIdAndUpdate(
+      { _id: userId },
+      { firstName, lastName, email, phone }
+    );
     const { password, ...others } = user._doc;
     res.status(200).json(others);
   } catch (err) {
@@ -127,4 +144,5 @@ module.exports = {
   getUserById,
   deleteUser,
   getUserCount,
+  updateUserById,
 };
