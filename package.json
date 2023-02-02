@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "This is the backend of beautybebo.com.",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "start": "node index.js"
+  },
   "author": "Jyotiranjan Mohanty",
   "license": "ISC",
   "dependencies": {
